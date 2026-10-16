@@ -115,20 +115,7 @@ s32 act_idle(struct MarioState *m) {
     if (m->actionArg & 1) {
         set_mario_animation(m, MARIO_ANIM_STAND_AGAINST_WALL);
     } else {
-        switch (m->actionState) {
-            case 0:
-                set_mario_animation(m, MARIO_ANIM_IDLE_HEAD_LEFT);
-                break;
-
-            case 1:
-                set_mario_animation(m, MARIO_ANIM_IDLE_HEAD_RIGHT);
-                break;
-
-            case 2:
-                set_mario_animation(m, MARIO_ANIM_IDLE_HEAD_CENTER);
-                break;
-        }
-
+        set_mario_animation(m, MARIO_ANIM_IDLE_HEAD_CENTER);
         if (is_anim_at_end(m)) {
             ++m->actionState; /* 'm->actionState = 3;' should work should this not */
         }
